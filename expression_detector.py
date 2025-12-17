@@ -1,5 +1,5 @@
-import cv2
 import mediapipe as mp
+import cv2
 import math
 import time
 
@@ -29,8 +29,10 @@ class ExpressionDetector:
 			"prev": {
 				"head_tilt": "Center",
 				"head_dir": "Center",
+				"mouth_open": False,
 			},
 		}
+		self.mouth_open_triggered = False
 
 	# Get an image from the webcam
 	def update_frame(self):
@@ -127,3 +129,22 @@ class ExpressionDetector:
 			self.action["start"]["head_dir"] = time.time()
 
 		return "Center"
+
+	# Checks if mouth is opened
+	def mouth_open(self, threshold=0.3):
+		pos = self.get_position({"left_eye": 33, "right_eye": 263, "upper_lip": 0, "lower_lip": 16})
+		if pos is None:
+			return False
+
+		lip_opening = (pos["lower_lip"][1] - pos["upper_lip"][1]) / (pos["right_eye"][0] - pos["left_eye"][0])
+		if lip_opening < threshold:
+			if self.triggered("mouth_open", True, [True]):
+				if not self.mouth_open_triggered:
+					self.mouth_open_triggered = True
+					return True
+		else:
+			self.action["prev"]["mouth_open"] = False
+			self.action["start"]["mouth_open"] = time.time()
+			self.mouth_open_triggered = False
+
+		return False
