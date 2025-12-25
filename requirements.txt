@@ -1,6 +1,4 @@
-mediapipe
+mediapipe==0.10.21
 kivymd
 opencv-python
-
-# Not used
 ffpyplayer
