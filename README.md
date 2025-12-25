@@ -2,7 +2,7 @@
 An assistive technology for users with motor impairments. The user can control their music or video player (play, pause, or change volume) by making distinct facial gestures like turning your head, tilting, or opening their mouth.
 
 ## Requirements
-- MediaPipe: for creating a face mesh
+- MediaPipe: for creating a face mesh (must be version 0.10.21)
 - KivyMD: for the ready-made video player
 - FFPyPlayer: for playing videos
 ```
