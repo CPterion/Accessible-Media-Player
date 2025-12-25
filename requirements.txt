@@ -1,3 +1,6 @@
 mediapipe
 kivymd
+opencv-python
+
+# Not used
 ffpyplayer
