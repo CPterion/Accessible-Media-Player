@@ -3,10 +3,10 @@ An assistive technology for users with motor impairments. The user can control t
 
 ## Requirements
 - Python==3.12.3: Programming language
+- OpenCV==4.11.0.86: webcam and image processing
 - MediaPipe==0.10.21: for creating a face mesh
 - KivyMD==1.2.0: for the ready-made video player
 - FFPyPlayer==4.5.3: for playing videos
-- OpenCV==4.11.0.86: Webcam and image processing
 ```
 pip install -r requirements.txt
 ```
