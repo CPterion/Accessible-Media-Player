@@ -1,4 +1,4 @@
 mediapipe==0.10.21
-kivymd
-opencv-python
-ffpyplayer
+kivymd==1.2.0
+opencv-python==4.11.0.86
+ffpyplayer==4.5.3
